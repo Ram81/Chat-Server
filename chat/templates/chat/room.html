@@ -1,4 +1,4 @@
-<!-- Chat/templates/Chat/room.html -->
+<!-- chat/templates/chat/room.html -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,9 +12,13 @@
 </body>
 <script>
     var roomName = {{ room_name_json }};
-
-    var chatSocket = new WebSocket('ws://' + window.location.host + '/ws/chat/' + roomName + '/');
-
+    console.log(window.location.host);
+    var chatSocket = new WebSocket(
+        'ws://' + window.location.host +
+        '/ws/chat/' + roomName + '/');
+    
+    console.log(window.location.host);
+    
     chatSocket.onmessage = function(e) {
         var data = JSON.parse(e.data);
         var message = data['message'];

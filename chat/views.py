@@ -4,10 +4,10 @@ import json
 
 # Create your views here.
 def index(request):
-	return render(request, 'Chat/index.html', {})
+	return render(request, 'chat/index.html', {})
 
 
 def room(request, room_name):
-	return render(request, 'Chat/room.html', {
+	return render(request, 'chat/room.html', {
 		'room_name_json': mark_safe(json.dumps(room_name))
 	})
